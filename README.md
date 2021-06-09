@@ -1,5 +1,5 @@
 
-# Expense Tracker
+### Expense Tracker
 
 It calculates your Weekly Expenses
 
