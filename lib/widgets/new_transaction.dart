@@ -1,3 +1,7 @@
+import 'dart:io';
+
+import 'package:expense_tracker/widgets/adaptiveButton.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -53,17 +57,14 @@ class _NewTransactionState extends State<NewTransaction> {
     return Card(
       elevation: 5,
       child: Container(
-        padding: EdgeInsets.only(
-            top: 10,
-            left: 10,
-            right: 10,
-            bottom: MediaQuery.of(context).viewInsets.bottom + 10),
+        padding: EdgeInsets.only(top: 10, left: 10, right: 10, bottom: 10),
         child: ListView(
           // crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
             TextField(
               decoration: InputDecoration(
-                  labelText: 'Title', hintText: 'Enter The Name Of Expense'),
+                labelText: 'Title',
+              ),
               controller: _titleController,
               onSubmitted: (_) => _submitData(),
               // onChanged: (val) {
@@ -72,7 +73,8 @@ class _NewTransactionState extends State<NewTransaction> {
             ),
             TextField(
               decoration: InputDecoration(
-                  labelText: 'Amount', hintText: 'Enter Amount in \u{20B9}'),
+                labelText: 'Amount',
+              ),
               controller: _amountController,
               keyboardType: TextInputType.number,
               onSubmitted: (_) => _submitData(),
@@ -87,13 +89,10 @@ class _NewTransactionState extends State<NewTransaction> {
                         ? 'No Date Choosen!'
                         : 'Picked Date: ${DateFormat.yMd().format(_selectedDate)}'),
                   ),
-                  FlatButton(
-                      textColor: Theme.of(context).primaryColor,
-                      onPressed: _presentDatePicker,
-                      child: Text(
-                        'Choose Date',
-                        style: TextStyle(fontWeight: FontWeight.w600),
-                      ))
+                  AdaptiveButton(
+                    text: 'Choose Date',
+                    onPressed: _presentDatePicker,
+                  )
                 ],
               ),
             ),

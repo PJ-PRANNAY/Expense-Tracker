@@ -7,4 +7,3 @@ It calculates your Weekly Expenses
 
 - [PJ-PRANNAY](https://github.com/PJ-PRANNAY)
 
-  
